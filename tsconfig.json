@@ -1,7 +1,6 @@
 {
-  "files": [],
   "references": [
-    { "path": "./tsconfig.node.json" }
+    {"path": "./tsconfig.node.json", "prepend": false }
   ],
   "compilerOptions": {
     "target": "ESNext",
@@ -13,19 +12,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noEmit": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
-    "types": ["vite-plugin-svg-icons/client"]
+    "types": ["vite-plugin-svg-icons"]
   },
   "include": [
     "src/**/*.ts",
