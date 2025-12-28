@@ -85,9 +85,10 @@
     <template #default>
       <el-form label-width="180px">
         <el-form-item label="贷款类型：">
-          <template #default>
-            <el-input v-model="drawerEntity.loanType" placeholder="请输入贷款类型"></el-input>
-          </template>
+          <el-select v-model="drawerEntity.loanType" placeholder="请选择贷款类型" clearable>
+            <el-option v-for="(label, value) in LoanTypeLabelMap"
+                       :key="value" :label="label" :value="value"/>
+          </el-select>
         </el-form-item>
         <el-form-item label="还款期数：">
           <template #default>
@@ -182,7 +183,7 @@
 
 import {Delete, Edit, Plus} from "@element-plus/icons-vue";
 import {onMounted, reactive, ref, Ref, computed} from "vue";
-import {getLoanTypeLabel, MortgageRepaymentDTO, MortgageRepaymentEntity} from "@/api/mortgage/repayment/types";
+import {getLoanTypeLabel, LoanTypeLabelMap, MortgageRepaymentDTO, MortgageRepaymentEntity} from "@/api/mortgage/repayment/types";
 import {ListPageParams, ResponseBase} from '@/api/base/types'
 import {PageResult} from "@/api/base/types";
 import {ElMessage, UploadProps} from "element-plus";
